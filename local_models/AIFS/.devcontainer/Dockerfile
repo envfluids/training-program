@@ -23,13 +23,16 @@ RUN python3 -m venv /opt/AIFS
 
 # Activate the virtual environment and install packages
 ENV PATH="/opt/AIFS/bin:$PATH"
-COPY requirements.txt /tmp/requirements.txt
-RUN pip3 install --upgrade pip && \
-    pip3 install -r /tmp/requirements.txt
 
-# Install additional Python packages
-RUN python3 -c 'import torch; print([torch.device("cuda", i) for i in range(torch.cuda.device_count())] if torch.cuda.is_available() else [])'
-RUN pip install flash-attn==2.8.0.post2
+# Copy requirements files
+COPY requirements.txt /tmp/requirements.txt
+COPY requirements_gpu.txt /tmp/requirements_gpu.txt
+
+# Install Python packages
+RUN pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir -r /tmp/requirements.txt && \
+    python3 -c "import torch; print([torch.device('cuda', i) for i in range(torch.cuda.device_count())] if torch.cuda.is_available() else [])" && \
+    pip3 install --no-cache-dir -r /tmp/requirements_gpu.txt
 
 # Set additional environment variables
 ENV ANEMOI_INFERENCE_NUM_CHUNKS="16"
