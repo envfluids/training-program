@@ -20,5 +20,5 @@
       ]
     }
   },
-  "postCreateCommand": "code ./aifs.ipynb" // Opens a specific Jupyter notebook after creation
+  "postCreateCommand": "python ./demo1.py" // Run demo1.py after container creation
 }

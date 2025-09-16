@@ -26,16 +26,10 @@ ENV PATH="/opt/AIFS/bin:$PATH"
 
 # Copy requirements files
 COPY requirements.txt /tmp/requirements.txt
-COPY requirements_gpu.txt /tmp/requirements_gpu.txt
 
 # Install Python packages
 RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r /tmp/requirements.txt && \
-    python3 -c "import torch; print([torch.device('cuda', i) for i in range(torch.cuda.device_count())] if torch.cuda.is_available() else [])" && \
-    pip3 install --no-cache-dir -r /tmp/requirements_gpu.txt
-
-# Set additional environment variables
-ENV ANEMOI_INFERENCE_NUM_CHUNKS="16"
+    pip3 install --no-cache-dir -r /tmp/requirements.txt
 
 # Expose ports for Jupyter Notebook
 EXPOSE 8888
