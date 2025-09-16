@@ -1,0 +1,30 @@
+--no-binary=numcodecs
+
+# make Beam happy
+numpy==2.2.6
+
+# keep zarr/numcodecs combo that exposes blosc cbuffer_* symbols
+zarr==2.17.2
+numcodecs==0.11.0
+
+# real PyPI version that works with the above
+xarray-beam==0.5.1
+
+ecmwf-opendata
+netcdf4
+h5netcdf
+gcsfs
+matplotlib
+cartopy
+jupyterlab
+ipywidgets
+streamlit
+panel
+hvplot
+geoviews
+geopandas
+plotly
+psutil
+apache-beam
+git+https://github.com/google-research/weatherbench2.git@main
+git+https://github.com/google-research/weatherbenchX.git@main

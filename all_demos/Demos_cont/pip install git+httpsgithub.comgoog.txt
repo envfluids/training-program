@@ -1,2 +1,0 @@
-pip install git+https://github.com/google-research/weatherbenchX.git
-pip install git+https://github.com/google-research/weatherbench2.git
