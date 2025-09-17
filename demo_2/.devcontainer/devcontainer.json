@@ -1,5 +1,5 @@
 {
-  "name": "GPU Python Virtual Environment",
+  "name": "AI Models",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -16,9 +16,9 @@
       },
       "extensions": [
         "ms-python.python", // Python extension for VSCode
-        "ms-toolsai.jupyter" // Jupyter extension for notebooks
+        "ms-toolsai.jupyter", // Jupyter extension for notebooks
+        "charliermarsh.ruff" // Ruff extension for formatting
       ]
     }
-  },
-  "postCreateCommand": "code ./aifs.ipynb" // Opens a specific Jupyter notebook after creation
+  }
 }

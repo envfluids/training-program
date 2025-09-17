@@ -1,1 +1,2 @@
-flash-attn==2.8.0.post2
+flash-attn==2.8.3
+onnxruntime-gpu==1.22.0

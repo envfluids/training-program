@@ -19,10 +19,10 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
     update-alternatives --config python3
 
 # Create a virtual environment
-RUN python3 -m venv /opt/AIFS
+RUN python3 -m venv /opt/ai-models
 
 # Activate the virtual environment and install packages
-ENV PATH="/opt/AIFS/bin:$PATH"
+ENV PATH="/opt/ai-models/bin:$PATH"
 
 # Copy requirements files
 COPY requirements.txt /tmp/requirements.txt
