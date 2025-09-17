@@ -19,6 +19,6 @@
         "ms-toolsai.jupyter" // Jupyter extension for notebooks
       ]
     }
-  },
-  "postCreateCommand": "python ./demo1.py" // Run demo1.py after container creation
+  }
+  // "postCreateCommand": "python ./demo1.py" // Run demo1.py after container creation
 }
