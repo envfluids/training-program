@@ -2,5 +2,5 @@
 **/weights/**
 **/regrid/**
 **.pyc
-__pycache__/
+__pycache__
 benchmark_results/
