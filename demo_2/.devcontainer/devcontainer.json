@@ -1,0 +1,24 @@
+{
+  "name": "AI Models",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--gpus=all" // Enables GPU support
+    // "--env", "MY_VAR=my_value" // Passes environment variables
+  ],
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python", // Python extension for VSCode
+        "ms-toolsai.jupyter", // Jupyter extension for notebooks
+        "charliermarsh.ruff" // Ruff extension for formatting
+      ]
+    }
+  }
+}

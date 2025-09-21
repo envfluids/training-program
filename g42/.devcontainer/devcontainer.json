@@ -1,0 +1,41 @@
+{
+  "name": "workshop-esmf",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+
+  "remoteUser": "mambauser",
+  "workspaceFolder": "/workspace",
+
+  // IMPORTANT: keep container alive (prevents the “not running” error)
+  "overrideCommand": true,
+
+  "runArgs": ["--init"],
+  "forwardPorts": [8888],
+
+  "containerEnv": {
+    "MAMBA_NO_BANNER": "1",
+    "PYTHONUNBUFFERED": "1"
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "postCreateCommand": "bash -lc 'python -V && python - <<PY\nimport xarray, xesmf\nprint(\"xarray\", xarray.__version__)\nprint(\"xesmf\", xesmf.__version__)\ntry:\n import ESMF\n print(\"ESMF\", getattr(ESMF, \"__version__\", \"unknown\"))\nexcept Exception as e:\n print(\"ESMF import failed:\", e)\nPY'",
+
+  "mounts": [
+    "type=bind,source=${localWorkspaceFolder},target=/workspace"
+  ]
+}
