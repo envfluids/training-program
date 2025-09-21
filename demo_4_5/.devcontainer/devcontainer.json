@@ -1,5 +1,5 @@
 {
-  "name": "GPU Python Virtual Environment",
+  "name": "AI Benchmarking Demos",
   "build": {
     "dockerfile": "Dockerfile"
   },
