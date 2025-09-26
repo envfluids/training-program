@@ -1,2 +1,1 @@
 streamlit run demo1.py
-streamlit run demo3.py
